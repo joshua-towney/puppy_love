@@ -1,0 +1,20 @@
+<h1>Your Chosen Puppy is <%=dog['name']%></h1>
+
+<form action="/dogs/<%=dog['id']%>" method="post">
+
+    <input type="hidden" name="_method" value="delete">
+
+    <img src="<%=dog['image_url']%>">
+
+    <h1>Name: <%=dog['name']%></h1>
+    <h1>Age: <%=dog['age']%></h1>
+    <h1>Location: <%=dog['location']%></h1>
+    <h1>Likes: <%=dog['likes']%></h1>
+    <h1>Dislikes: <%=dog['dislikes']%></h1>
+    <h1>Bio: <%=dog['bio']%></h1>
+
+<button>Delete From The Dating Pool</button>
+
+</form>
+
+<a href="/dogs/<%=dog['id']%>/edit">Edit Puppy Details</a>

@@ -16,6 +16,10 @@ CREATE TABLE dogs (
 
 INSERT INTO dogs (name, image_url, age, location, likes, dislikes, bio) VALUES ('Jimmy','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUTqmq9Pknq1-dkMQTBZ3SbIX4yDS45-zvRg&usqp=CAU',4,'Melbourne','Treats','Cats','I love walks');
 
+INSERT INTO dogs (name, image_url, age, location, likes, dislikes, bio) VALUES ('Bethany','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUTqmq9Pknq1-dkMQTBZ3SbIX4yDS45-zvRg&usqp=CAU',7,'Sydney','Walks','Baths','Ruff Ruff!');
+
+INSERT INTO dogs (name, image_url, age, location, likes, dislikes, bio) VALUES ('Bebop','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUTqmq9Pknq1-dkMQTBZ3SbIX4yDS45-zvRg&usqp=CAU',5,'Melbourne','Cuddles','Lizards','Am derp');
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email TEXT,

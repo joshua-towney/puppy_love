@@ -1,0 +1,31 @@
+<form action="/dogs/<%=dog['id']%>" method='post'>
+<input type="hidden" name='_method' value='put'>
+
+    <section class='new_dog_details'>
+
+        <label>Name</label>
+        <input type="text" placeholder="<%=dog['name']%>" name="name">
+
+        <label>Image URL</label>
+        <input type="text" placeholder='http...' name='image_url'>
+
+        <label>Age</label>
+        <input type="integer" placeholder="<%=dog['age']%>" name='age'>
+
+        <label>Location</label>
+        <input type="text" placeholder="<%=dog['location']%>" name='location'>
+
+        <label>Likes</label>
+        <input type="text" placeholder="<%=dog['likes']%>" name='likes'>
+
+        <label>Dislikes</label>
+        <input type="text" placeholder="<%=dog['dislikes']%>" name='dislikes'>
+
+        <label>Bio</label>
+        <input type="text" placeholder="<%=dog['bio']%>" name='bio'>
+
+        <button>Submit</button>
+
+    </section>
+
+</form>
