@@ -1,0 +1,8 @@
+body {
+    background-color: grey;
+    font-family: fantasy;
+}
+.new_dog_details {
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
