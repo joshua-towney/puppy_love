@@ -22,17 +22,22 @@ INSERT INTO dogs (name, image_url, age, location, likes, dislikes, bio) VALUES (
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    user_name TEXT,
     email TEXT,
     password_digest TEXT
 );
 
+user_name = 'Frank The Tank'
 email = 'woof@bark.com'
 password = 'walkies'
+
+user_name = 'Treat Yo Self'
 email = 'treats@yesplease.com'
 password = 'give'
 
 CREATE TABLE user_comments (
     dog_id INTEGER,
     comment TEXT,
+    user_name TEXT,
     user_id INTEGER
 );

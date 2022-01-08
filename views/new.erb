@@ -6,7 +6,7 @@
     <section class='dog_details'>
 
         <label>Name:</label>
-        <input type="text" name='name' onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+        <input type="text" name='name' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>
 
         <label>Image:</label>
         <input type="file" name='image_url' required>
@@ -15,16 +15,16 @@
         <input type="number" name='age' required>
 
         <label>Location:</label>
-        <input type="text" name='location' onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+        <input type="text" name='location' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>
 
         <label>Likes:</label>
-        <input type="text" name='likes' onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+        <input type="text" name='likes' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>
 
         <label>Dislikes:</label>
-        <input type="text" name='dislikes' onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+        <input type="text" name='dislikes' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>
 
         <label>Bio:</label>
-        <input type="text" maxlength="50" name='bio' onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+        <input type="text" maxlength="50" name='bio' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>
     </section>
     <button class="new_submit_button">Submit</button>
 

@@ -43,7 +43,6 @@ def find_user_by_id(id)
     db_query('SELECT * FROM users WHERE id = $1', [id])
 end
 
-
 get '/' do
     erb :index
 end
@@ -144,19 +143,14 @@ put '/dogs/:id' do
 end
 
 post '/dogs/:id' do
-
     conn = PG.connect(dbname: 'puppy_love')
+    result = find_user_by_id(session[:user_id])[0]['user_name']
 
-    find_user_by_id(session[:user_id])
-
-    sql = "INSERT INTO user_comments (dog_id, comment, user_id) VALUES (#{params['id']}, '#{params['comment']}', #{session[:user_id]});"
-
+    sql = "INSERT INTO user_comments (dog_id, comment, user_name, user_id) VALUES (#{params['id']}, '#{params['comment']}', '#{result}', #{session[:user_id]});"
     conn.exec(sql)
     conn.close
 
     redirect "/dogs/#{params['id']}"
-
-
 end
 
 delete '/dogs/:id' do
@@ -167,12 +161,35 @@ delete '/dogs/:id' do
     conn.close
 
     redirect '/dogs'
-
-
 end
 
 get '/login' do
+    if logged_in?
+        redirect '/'
+    end
     erb :login
+end
+
+get '/login/new' do
+
+    if logged_in?
+        redirect '/'
+    end
+
+    erb :login_new
+end
+
+post '/login' do
+
+    password_digest = BCrypt::Password.create(params['password'])
+
+    conn = PG.connect(dbname: 'puppy_love')
+    sql = "INSERT INTO users (user_name, email, password_digest) VALUES ('#{params['user_name']}', '#{params['email']}', '#{password_digest}');"
+    conn.exec(sql)
+    conn.close
+
+    redirect '/'
+
 end
 
 post '/session' do

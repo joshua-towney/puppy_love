@@ -17,7 +17,7 @@
 
     <%if logged_in?%>
 
-        Logged in as <%=current_user['email']%>
+        Logged in as: <%=current_user['user_name']%>
 
         <form action="/session" method="post">
             <input type="hidden" name="_method" value="delete">
@@ -25,6 +25,8 @@
         </form>
 
     <%else%>
+        <a href="/login/new">Create Account</a>
+        <span> &hearts; </span>
         <a href="/login">Login</a>
     <%end%>
 
