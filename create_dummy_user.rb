@@ -5,10 +5,10 @@ require 'bcrypt'
 puts 'creating dummy user...'
 
 
-# email = 'woof@bark.com'
-# password = 'walkies'
-email = 'treats@yesplease.com'
-password = 'give'
+email = 'woof@bark.com'
+password = 'walkies'
+# email = 'treats@yesplease.com'
+# password = 'give'
 
 
 conn = PG.connect(dbname: 'puppy_love')

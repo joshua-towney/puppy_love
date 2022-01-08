@@ -1,9 +1,10 @@
 <h1>All Doggos</h1>
 
-
-<section>
-    <% dogs.each do |dog| %>
-        <a href="/dogs/<%=dog['id']%>"><%=dog['name']%></a>
-        <img src="<%=dog['image_url']%>">
-   <% end %>
-</section>
+<div class="dog_container">
+    <section class="all_dogs">
+        <% dogs.each do |dog| %>
+            <a href="/dogs/<%=dog['id']%>"><%=dog['name']%></a>
+            <img src="<%=dog['image_url']%>">
+        <% end %>
+    </section>
+</div>

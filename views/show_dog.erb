@@ -1,20 +1,54 @@
-<h1>Your Chosen Puppy is <%=dog['name']%></h1>
+
+<header class="profile_header">
+    <h1>Your Chosen Puppy is</h1> 
+    <h1>&hearts;&hearts;&hearts;<%=dog['name']%>&hearts;&hearts;&hearts;</h1>
+</header>
 
 <form action="/dogs/<%=dog['id']%>" method="post">
 
     <input type="hidden" name="_method" value="delete">
 
-    <img src="<%=dog['image_url']%>">
+    <section class="profile_main_block">
+        <div class="profile_left">
+            <img src="<%=dog['image_url']%>">
+        </div>
+        <div class="profile_right">
+            <h1>Age: <%=dog['age']%></h1>
+            <h1>Location: <%=dog['location']%></h1>
+            <h1>Likes: <%=dog['likes']%></h1>
+            <h1>Dislikes: <%=dog['dislikes']%></h1>
+            <h1>Bio: <%=dog['bio']%></h1>
+        </div>
+    </section>
 
-    <h1>Name: <%=dog['name']%></h1>
-    <h1>Age: <%=dog['age']%></h1>
-    <h1>Location: <%=dog['location']%></h1>
-    <h1>Likes: <%=dog['likes']%></h1>
-    <h1>Dislikes: <%=dog['dislikes']%></h1>
-    <h1>Bio: <%=dog['bio']%></h1>
-
-<button>Delete From The Dating Pool</button>
+    <%if session[:user_id] == dog['user_id']%>
+        <a href="/dogs/<%=dog['id']%>/edit" class="edit_link">  Edit Puppy Details </a>
+        <button>Delete From The Dating Pool</button>
+    <%end%>
 
 </form>
 
-<a href="/dogs/<%=dog['id']%>/edit">Edit Puppy Details</a>
+&hearts;&hearts;&hearts; 
+
+
+<%if logged_in?%>
+
+    <form action="/dogs/<%=dog['id']%>" method="post">
+        <label>Comment</label>
+        <input type="text" name="comment">
+        <button>Submit Comment</button>
+    </form>
+
+    &hearts;&hearts;&hearts;
+
+    <section class="user_comments">
+        <%comments.each do |comment|%>
+            <h3>User <%=comment['user_id']%> commented: <%=comment['comment']%></h3>
+        <%end%>
+    </section>
+
+    <button>&#129460;</button>
+    <button>&#128049;</button>
+
+<%end%>
+

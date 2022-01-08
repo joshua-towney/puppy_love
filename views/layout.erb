@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Puppy Love</title>
     <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
-<body>
+<body class="links">
     <a href="/">Home</a>
-    <span> | </span>
+    <span> &hearts; </span>
     <a href="/dogs">View All Dogs</a>
-    <span> | </span>
+    <span> &hearts; </span>
     <a href="/dogs/new">Add Puppy</a>
-    <span> | </span>
+    <span> &hearts; </span>
 
     <%if logged_in?%>
-        Logged in as Mr Woof
+
+        Logged in as <%=current_user['email']%>
 
         <form action="/session" method="post">
             <input type="hidden" name="_method" value="delete">
             <button>logout</button>
         </form>
 
-        <%else%>
-            <a href="/login">Login</a>
+    <%else%>
+        <a href="/login">Login</a>
     <%end%>
 
-<%=yield%>
+
+    <%=yield%>
+
     
 </body>
+<footer>
+    <h3>&hearts;&hearts;&hearts;</h3>
+    &hearts;&hearts;&hearts; &copy 2022 Puppy Love Marketing &hearts;&hearts;&hearts;
+</footer>
 </html>

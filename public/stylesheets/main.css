@@ -1,8 +1,85 @@
 body {
-    background-color: grey;
-    font-family: fantasy;
+    background-image: url("https://wallpapercave.com/wp/xwE9aEw.jpg");
+    font-family: Arial, Helvetica, sans-serif
 }
-.new_dog_details {
+.dog_details {
     display: grid;
-    grid-template-columns: 100px 100px;
+    grid-template-columns: 300px 300px;
+    position: center;
+    text-align: right;
+
+    box-sizing: border-box;
+    width: 900px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.all_dogs {
+    display: grid;
+    grid-template-columns: 150px 160px 150px 160px 150px 160px;
+    grid-template-rows: auto;
+    box-sizing: border-box;
+    width: 1000px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.all_dogs img {
+    width: 150px;
+    height: 150px;
+    border: 5px solid navy;
+    border-radius: 50%;
+}
+.profile_main_block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.profile_left {
+    text-align: right;
+}
+.profile_left img {
+    width: 300px;
+    height: 300px;
+    border: 5px solid navy;
+}
+.profile_right {
+    text-align: left;
+}
+.profile_header {
+    text-align: center;
+    font-size: 2em;
+}
+h1 {
+    margin: 10px 0;
+}
+.links {
+    text-align: center;
+}
+.new_submit_button {
+    text-align: center;
+}
+.user_comments {
+    width: 1000px;
+    height: auto;
+    position: center;
+    background-color: lightblue;
+
+    box-sizing: border-box;
+    width: 650px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.home_image {
+    border: 20px solid navy;
+    border-radius: 80% 80%  150% 150%  ;
+}
+.edit_link {
+    background-color: rgb(242, 238, 238);
+    border: 1px solid black;
+    border-radius: 2px;
+    text-decoration: none;
+    color: black;
 }

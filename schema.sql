@@ -25,3 +25,14 @@ CREATE TABLE users (
     email TEXT,
     password_digest TEXT
 );
+
+email = 'woof@bark.com'
+password = 'walkies'
+email = 'treats@yesplease.com'
+password = 'give'
+
+CREATE TABLE user_comments (
+    dog_id INTEGER,
+    comment TEXT,
+    user_id INTEGER
+);
