@@ -63,7 +63,7 @@ get '/dogs/new' do
 
     redirect '/login' unless logged_in?
     
-    erb :new
+    erb :dogs_new
 end
 
 get '/dogs/:id' do 

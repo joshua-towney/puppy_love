@@ -1,7 +1,7 @@
-<h1>Add dog who is ready for love</h1>
+<h1>Add Details of the dog who is ready for love</h1>
 
 
-<form action="/dogs" method="post" enctype="multipart/form-data">
+<form action="/dogs"  autocomplete="off" method="post" enctype="multipart/form-data">
 
     <section class='dog_details'>
 
@@ -12,7 +12,7 @@
         <input type="file" name='image_url' required>
 
         <label>Age:</label>
-        <input type="number" name='age' required>
+        <input type="number" min="0" name='age' required>
 
         <label>Location:</label>
         <input type="text" name='location' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>

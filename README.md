@@ -9,6 +9,8 @@ password: walkies
 email: treats@yesplease.com
 password: give
 
+Alternatively, you can create your own login account.
+
 Only the user who created the entry will be able to edit or delete it. 
 
 I would love to ba able to add a matching option to this in the future which can display 'It's a match!' with a picture of the two dogs if they liked each others profiles.
@@ -28,7 +30,7 @@ RUBY, CSS and HTML.
 
 One big obstacle which took a whle to work out had to do with user entries. Apostropies could not be used for comments and any dog data as it broke the sql entry for the database. 
 
-When editing details, a photo needs to be uploaded everytime. aything requring text will input empty data if nothing is entered. I would have liked it to used whatever was already on file if nothing was entered. I have madee al fields required as a work around for now.
+When editing details, a photo needs to be uploaded everytime. anything requiring text will input empty data if nothing is entered. I would have liked it to used whatever was already on file if nothing was entered. I have madee al fields required as a work around for now.
 
 
 

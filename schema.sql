@@ -35,6 +35,10 @@ user_name = 'Treat Yo Self'
 email = 'treats@yesplease.com'
 password = 'give'
 
+user_name = 'cat_annihilator_69'
+email = 'cat_sniper@kaboom.com'
+password = 'catdeath'
+
 CREATE TABLE user_comments (
     dog_id INTEGER,
     comment TEXT,

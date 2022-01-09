@@ -22,7 +22,7 @@
     </section>
 
     <%if session[:user_id] == dog['user_id']%>
-        <a href="/dogs/<%=dog['id']%>/edit" class="edit_link">  Edit Puppy Details </a>
+        <a href="/dogs/<%=dog['id']%>/edit" class="edit_link"> Edit Puppy Details </a>
         <button>Delete From The Dating Pool</button>
     <%end%>
 
@@ -35,7 +35,7 @@
 
     <form action="/dogs/<%=dog['id']%>" method="post">
         <label>Comment</label>
-        <input type="text" name="comment">
+        <input type="text" onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" name="comment">
         <button>Submit Comment</button>
     </form>
 
@@ -43,12 +43,13 @@
 
     <section class="user_comments">
         <%comments.each do |comment|%>
-            <h3><%=comment['user_name']%> commented: '<%=comment['comment']%>'</h3>
+            <h3><%=comment['user_name']%> : '<%=comment['comment']%>'</h3>
         <%end%>
     </section>
 
-    <button>&#129460;</button>
-    <button>&#128049;</button>
+    <button class="like_dislike">&#129460;</button>
+    &hearts;
+    <button class="like_dislike">&#128049;</button>
 
 <%end%>
 

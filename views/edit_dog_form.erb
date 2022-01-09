@@ -1,4 +1,5 @@
-<form action="/dogs/<%=dog['id']%>" method='post' enctype="multipart/form-data">
+<form action="/dogs/<%=dog['id']%>" autocomplete="off" method='post' enctype="multipart/form-data">
+
 <input type="hidden" name='_method' value='put'>
 
     <h1>Edit Puppy Details</h1>
@@ -12,7 +13,7 @@
         <input type="file" name='image_url' required>
 
         <label>Age</label>
-        <input type="number" placeholder="<%=dog['age']%>" name='age' required>
+        <input type="number" min="0" placeholder="<%=dog['age']%>" name='age' required>
 
         <label>Location</label>
         <input type="text" placeholder="<%=dog['location']%>" name='location' onkeypress="return (event.keyCode !== 39) && (event.keyCode !== 34)" required>
