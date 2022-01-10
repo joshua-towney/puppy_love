@@ -3,7 +3,7 @@
 <div class="dog_container">
     <section class="all_dogs">
         <% dogs.each do |dog| %>
-            <a href="/dogs/<%=dog['id']%>"><%=dog['name']%></a>
+            <a href="/dogs/<%=dog['id']%>" class="single_dog_link"><%=dog['name']%></a>
             <img src="<%=dog['image_url']%>">
         <% end %>
     </section>
