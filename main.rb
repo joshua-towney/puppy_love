@@ -70,7 +70,7 @@ get '/dogs/:id' do
     
     dog_id = params['id']
 
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'}
     sql = "SELECT * FROM dogs WHERE id = '#{dog_id}';"
     result = conn.exec(sql)
     dog = result[0]
