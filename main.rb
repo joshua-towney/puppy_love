@@ -23,7 +23,7 @@ def logged_in?()
 end
 
 def current_user()
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     sql = "SELECT * FROM users WHERE id = #{session[:user_id]};"
     result = conn.exec(sql)
     user = result[0]
@@ -33,7 +33,7 @@ def current_user()
 end
 
 def db_query(sql, params = [])
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     result = conn.exec_params(sql, params)
     conn.close
     return result
@@ -49,7 +49,7 @@ end
 
 get '/dogs' do 
 
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     sql = "SELECT * FROM dogs ORDER BY id"
     result = conn.exec(sql)
     conn.close
@@ -96,7 +96,7 @@ post '/dogs' do
 
     sql = "INSERT INTO dogs (name, image_url, age, location, likes, dislikes, bio, user_id) VALUES ('#{params['name']}', '#{result['url']}', '#{params['age']}', '#{params['location']}', '#{params['likes']}', '#{params['dislikes']}', '#{params['bio']}','#{session[:user_id]}');"
 
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
 
     conn.exec(sql)
     conn.close
@@ -109,7 +109,7 @@ get '/dogs/:id/edit' do
 
     dog_id = params['id']
 
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     sql = "SELECT * FROM dogs WHERE id = '#{dog_id}';"
     result = conn.exec(sql)
     dog = result[0]
@@ -131,7 +131,7 @@ put '/dogs/:id' do
 
     result = Cloudinary::Uploader.upload(file, options)
     
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
 
     sql = "UPDATE dogs SET name = '#{params['name']}', image_url = '#{result['url']}', age = '#{params['age']}', location = '#{params['location']}', likes = '#{params['likes']}', dislikes = '#{params['dislikes']}', bio = '#{params['bio']}' WHERE id = #{params['id']};"
 
@@ -143,7 +143,7 @@ put '/dogs/:id' do
 end
 
 post '/dogs/:id' do
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     result = find_user_by_id(session[:user_id])[0]['user_name']
 
     sql = "INSERT INTO user_comments (dog_id, comment, user_name, user_id) VALUES (#{params['id']}, '#{params['comment']}', '#{result}', #{session[:user_id]});"
@@ -156,7 +156,7 @@ end
 delete '/dogs/:id' do
 
     sql = "DELETE FROM dogs WHERE id = #{params['id']}"
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     conn.exec(sql)
     conn.close
 
@@ -183,7 +183,7 @@ post '/login' do
 
     password_digest = BCrypt::Password.create(params['password'])
 
-    conn = PG.connect(dbname: 'puppy_love')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
     sql = "INSERT INTO users (user_name, email, password_digest) VALUES ('#{params['user_name']}', '#{params['email']}', '#{password_digest}');"
     conn.exec(sql)
     conn.close
@@ -197,7 +197,7 @@ post '/session' do
   email = params["email"]
   password = params["password"]
 
-  conn = PG.connect(dbname: 'puppy_love')
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'puppy_love'})
   sql = "SELECT * from users WHERE email = '#{email}';"
   result = conn.exec(sql) 
   conn.close
